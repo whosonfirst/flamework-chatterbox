@@ -28,17 +28,19 @@ After that, just copy the [lib_chatterbox.php](www/include/lib_chatterbox.php) f
 
 	# START OF chatterbox stuff / https://github.com/whosonfirst/go-whosonfirst-chatterbox
 
-	$GLOBALS['cfg']['enable_feature_chatterbox'] = 0;
+	$GLOBALS['cfg']['enable_feature_chatterbox'] = 1;
 
 	$GLOBALS['cfg']['chatterbox_host'] = '127.0.0.1';
 	$GLOBALS['cfg']['chatterbox_port'] = '6379';
 	$GLOBALS['cfg']['chatterbox_channel'] = 'chatterbox';
-	$GLOBALS['cfg']['chatterbox_destination'] = '';
+	$GLOBALS['cfg']['chatterbox_destination'] = '...';
 
 	# END OF chatterbox stuff
 ```
 
-If you want to log API calls with `chatterbox` you will also copy the [lib_api_log_chatterbox.php](www/include/lib_api_log_chatterbox.php) file in to your `include` directory and then load it in your `$GLOBALS['cfg']['autoload_libs']` array (or equivalent). For example:
+If you want to log API calls with `chatterbox` you will also copy the [lib_api_log_chatterbox.php](www/include/lib_api_log_chatterbox.php) file in to your `include` directory and then load it in your `$GLOBALS['cfg']['autoload_libs']` array (or equivalent).
+
+For example:
 
 ```
         $GLOBALS['cfg']['autoload_libs'] = array_merge(array(
@@ -64,7 +66,7 @@ If you want to log API calls with `chatterbox` you will also copy the [lib_api_l
 	chatterbox_dispatch($data, $more)
 ```
 
-Note that _where_ messages are dispatched are controlled by global configs (defined above).
+Note that _where_ messages are dispatched to is controlled by global configs (defined above).
 
 ## See also
 
